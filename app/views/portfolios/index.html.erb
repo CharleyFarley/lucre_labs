@@ -1,0 +1,23 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>stuff</title>
+</head>
+<body>
+<h2>some fuckin stuff</h2>
+
+<%= link_to "some new fuckin stuff", new_portfolio_path %>
+<p>
+	<% @portfolio_items.each do |portfolio_item| %>
+		<p><%= portfolio_item.title  %></p>
+		<p><%= portfolio_item.subtitle  %></p>
+		<p><%= portfolio_item.body  %></p>
+		<p><%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil?  %></p>
+		<%= link_to "Edit", edit_portfolio_path(portfolio_item) %> 
+		<%= link_to "Delete this shit", portfolio_path(portfolio_item), method: :delete, data: {confirm: "are you sure?"} %> 
+	<% end %>
+</p>
+</body>
+</html>
